@@ -1,7 +1,7 @@
 import Chat from "../../components/chat/Chat";
 import List from "../../components/list/List";
 import "./profilePage.scss";
-import apiRequest from "../../lib/apiRequest";
+import apiRequest from "../../lib/apiRequest.js";
 import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
 import { Suspense, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -15,6 +15,7 @@ function ProfilePage() {
 
   const handleLogout = async () => {
     try {
+      console.log("I am about to logout");
       await apiRequest.post("/auth/logout");
       updateUser(null);
       navigate("/");
