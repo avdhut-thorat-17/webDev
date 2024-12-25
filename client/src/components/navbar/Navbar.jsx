@@ -12,7 +12,7 @@ function Navbar() {
   const fetch = useNotificationStore((state) => state.fetch);
   const number = useNotificationStore((state) => state.number);
 
-  if(currentUser) fetch();
+  if (currentUser) fetch();
 
   return (
     <nav>
@@ -38,8 +38,8 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a onClick={navigate("/login")}>Sign in</a>
-            <a onClick={navigate("/register")} className="register">
+            <a onClick={() => navigate("/login")}>Sign in</a>
+            <a onClick={() => navigate("/register")} className="register">
               Sign up
             </a>
           </>
@@ -56,8 +56,8 @@ function Navbar() {
           <a href="/">About</a>
           <a href="/">Contact</a>
           <a href="/">Agents</a>
-          <a href="/">Sign in</a>
-          <a href="/">Sign up</a>
+          <a onClick={() => navigate("/login")}>Sign in</a>
+          <a onClick={() => navigate("/register")}>Sign up</a>
         </div>
       </div>
     </nav>
