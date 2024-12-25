@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useNotificationStore } from "../../lib/notificationStore";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
 
   const fetch = useNotificationStore((state) => state.fetch);
@@ -38,8 +38,8 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a href="login">Sign in</a>
-            <a href="register" className="register">
+            <a onClick={navigate("/login")}>Sign in</a>
+            <a onClick={navigate("/register")} className="register">
               Sign up
             </a>
           </>
